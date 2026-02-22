@@ -120,7 +120,11 @@ app.delete('/api/books/:id', (req, res) => {
     });
 });
 
-// Start server 
-app.listen(port, () => {
-    console.log(`Books API server running at http://localhost:${port}`);
-});
+// Only start server when running directly, , not when testing
+if (require.maim === module) {
+    app.listen(port, () => {
+        console.log(`Books API server running at http://localhost:${port}`); 
+    });
+}
+
+module.exports = app;
