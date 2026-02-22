@@ -1,3 +1,10 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Middleware to parse JSON 
+app.use(express.json());
+
 // Books for bookstore API
 let books = [
     {
@@ -23,6 +30,11 @@ let books = [
     }
     // Add more books if you'd like!
 ];
+
+// Start server 
+app.listen(port, () => {
+    console.log(`Books API server running at http://localhost:${port}`);
+});
 
 /* Create your REST API here with the following endpoints:
     'GET /api/books': 'Get all books',
